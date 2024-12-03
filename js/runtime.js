@@ -26,9 +26,9 @@ if (second > 0) {
     time[4] = nol(second);
 }
 if ((Number(time[2]) < 22) && (Number(time[2]) > 7)) {
-    currentTimeHtml = "星穹列车 - 营业中：" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4];
+    currentTimeHtml = "星穹列车 - 营业中：" + time[0] + ' year ' + time[1] + ' days ' + time[2] + ' : ' + time[3] + ' : ' + time[4];
 }
 else {
-    currentTimeHtml = "星穹列车 - 打烊了：" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4];
+    currentTimeHtml = "星穹列车 - 打烊了：" + time[0] + ' year ' + time[1] + ' days ' + time[2] + ' : ' + time[3] + ' : ' + time[4];
 }
 document.getElementById("workboard").innerHTML = currentTimeHtml;
