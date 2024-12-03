@@ -1,34 +1,30 @@
-/* 电子钟字体 */
+/*电子钟字体*/
 @font-face {
     font-family: 'UnidreamLED';
     src: url("https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/UnidreamLED.ttf");
     font-display: swap;
-}
-
-/* 运行时间显示区域样式 */
-div#runtime {
+  }
+  div#runtime {
     width: 180px;
-    margin: 0 auto; /* 使用更简洁的方式设置水平居中 */
+    margin: auto;
     color: #fff;
-    padding: 0 5px; /* 简化内边距设置方式 */
+    padding-inline: 5px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0,0,0,0.7);
     font-family: 'UnidreamLED';
-}
-
-/* 暗主题下运行时间显示区域样式 */
-[data-theme="dark"] div#runtime {
+  }
+  [data-theme="dark"] div#runtime {
     color: #28b4c8;
-    box-shadow: 0 0 5px rgba(28, 69, 218, 0.71);
+    box-shadow: 0 0 5px rgba(28,69,218,0.71);
     animation: flashlight 1s linear infinite alternate;
-}
-
-/* 悬停显示徽标提示语通用样式 */
-a.github-badge:hover::before {
+  }
+  /*悬停显示徽标提示语*/
+  a.github-badge:hover:before {
     position: fixed;
     width: fit-content;
-    left: 50%; /* 使用 left 和 transform 来实现水平居中，兼容性更好 */
-    transform: translateX(-50%);
+    margin: auto;
+    left: 0;
+    right: 0;
     top: 10%;
     border-radius: 10px;
     text-align: center;
@@ -38,19 +34,39 @@ a.github-badge:hover::before {
     color: #fff;
     padding: 10px;
     background-color: var(--text-bg-hover);
-}
-
-/* 暗主题下悬停显示徽标提示语背景色样式 */
-[data-theme="dark"] a.github-badge:hover::before {
-    background-color: rgba(18, 18, 18, 0.8);
-}
-
-/* flashlight 动画关键帧定义，合并不同浏览器前缀的重复定义 */
-@keyframes flashlight {
+  }
+  [data-theme=dark] a.github-badge:hover:before {
+    background-color: rgba(18,18,18,0.8);
+  }
+  @-moz-keyframes flashlight {
     from {
-        box-shadow: 0 0 5px #1478d2;
+      box-shadow: 0 0 5px #1478d2;
     }
     to {
-        box-shadow: 0 0 2px #1478d2;
+      box-shadow: 0 0 2px #1478d2;
     }
-}
+  }
+  @-webkit-keyframes flashlight {
+    from {
+      box-shadow: 0 0 5px #1478d2;
+    }
+    to {
+      box-shadow: 0 0 2px #1478d2;
+    }
+  }
+  @-o-keyframes flashlight {
+    from {
+      box-shadow: 0 0 5px #1478d2;
+    }
+    to {
+      box-shadow: 0 0 2px #1478d2;
+    }
+  }
+  @keyframes flashlight {
+    from {
+      box-shadow: 0 0 5px #1478d2;
+    }
+    to {
+      box-shadow: 0 0 2px #1478d2;
+    }
+  }
