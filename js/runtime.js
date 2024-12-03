@@ -1,34 +1,40 @@
-let create_time = Math.round(new Date('2024-11-30 00:00:00').getTime() / 1000); //在此行修改建站时间
-let timestamp = Math.round((new Date().getTime()) / 1000);
-let second = timestamp - create_time;
-let time = new Array(0, 0, 0, 0, 0);
+var now = new Date;
 
-var nol = function (h) {
-    return h > 9? h : '0' + h;
-};
-if (second >= 365 * 24 * 3600) {
-    time[0] = parseInt(second / (365 * 24 * 3600));
-    second %= 365 * 24 * 3600;
+function createtime() {
+    now.setTime(now.getTime() + 1e3);
+    var e = new Date("08/01/2022 00:00:00");
+    var t = Math.trunc(234e8 + (now - e) / 1e3 * 17);
+    var a = (t / 1496e5).toFixed(6);
+    var o = new Date("08/09/2022 00:00:00");
+    var n = (now - o) / 1e3 / 60 / 60 / 24;
+    var r = Math.floor(n);
+    var i = (now - o) / 1e3 / 60 / 60 - 24 * r;
+    var s = Math.floor(i);
+    if (1 == String(s).length) {
+        s = "0" + s;
+    }
+    var d = (now - o) / 1e3 / 60 - 1440 * r - 60 * s;
+    var l = Math.floor(d);
+    if (1 == String(l).length) {
+        l = "0" + l;
+    }
+    var g = (now - o) / 1e3 - 86400 * r - 3600 * s - 60 * l;
+    var b = Math.round(g);
+    if (1 == String(b).length) {
+        b = "0" + b;
+    }
+
+    let c = "";
+    if (s < 18 && s >= 9) {
+        c = `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`;
+    } else {
+        c = `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`;
+    }
+    if (document.getElementById("workboard")) {
+        document.getElementById("workboard").innerHTML = c;
+    }
 }
-if (second >= 24 * 3600) {
-    time[1] = parseInt(second / (24 * 3600));
-    second %= 24 * 3600;
-}
-if (second >= 3600) {
-    time[2] = nol(parseInt(second / 3600));
-    second %= 3600;
-}
-if (second >= 60) {
-    time[3] = nol(parseInt(second / 60));
-    second %= 60;
-}
-if (second > 0) {
-    time[4] = nol(second);
-}
-if ((Number(time[2]) < 22) && (Number(time[2]) > 7)) {
-    currentTimeHtml = "星穹列车 - 营业中：" + time[0] + ' year ' + time[1] + ' days ' + time[2] + ' : ' + time[3] + ' : ' + time[4];
-}
-else {
-    currentTimeHtml = "星穹列车 - 打烊了：" + time[0] + ' year ' + time[1] + ' days ' + time[2] + ' : ' + time[3] + ' : ' + time[4];
-}
-document.getElementById("workboard").innerHTML = currentTimeHtml;
+
+setInterval(() => {
+    createtime();
+}, 1e3);
