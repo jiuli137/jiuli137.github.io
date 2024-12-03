@@ -1,6 +1,6 @@
 setInterval(() => {
     // 玖离的密码小屋相关时间计算
-    let create_time_site = Math.round(new Date('2019-04-17 00:00:00').getTime() / 1000); // 建站时间
+    let create_time_site = Math.round(new Date('2024-11-30 00:00:00').getTime() / 1000); // 建站时间
     let timestamp_site = Math.round((new Date().getTime()) / 1000);
     let second_site = timestamp_site - create_time_site;
     let time_site = new Array(0, 0, 0, 0, 0);
