@@ -58,15 +58,14 @@ setInterval(() => {
 
     let currentTimeHtml_site;
     if ((Number(time_site[2]) < 22) && (Number(time_site[2]) > 7)) {
-        currentTimeHtml_site = "<img class='boardsign' src='https://img.shields.io/badge/玖离的密码小屋-悄悄摸鱼中-6adea8?style=social&logo=cakephp' title='正在悄悄努力哦~'><div id='runtime_site'>" + time_site[0] + ' YEAR ' + time_site[1] + ' DAYS ' + time_site[2] + ' : ' + time_site[3] + ' : ' + time_site[4] + '</div>';
+        currentTimeHtml_site = "<img class='boardsign' src='https://img.shields.io/badge/玖离的密码小屋-偷偷摸鱼中-6adea8?style=social&logo=cakephp' title='正在悄悄努力哦~'><div id='runtime_site'>" + time_site[0] + ' year ' + time_site[1] + ' days ' + time_site[2] + ' : ' + time_site[3] + ' : ' + time_site[4] + '</div>';
     }
     else {
-        currentTimeHtml_site = "<img class='boardsign' src='https://img.shields.io/badge/玖离的密码小屋-不断努力中-6adea8?style=social&logo=coffeescript' title='加油呀，一直在前进呢'><div id='runtime_site'>" + time_site[0] + ' YEAR ' + time_site[1] + ' DAYS ' + time_site[2] + ' : ' + time_site[3] + ' : ' + time_site[4] + '</div>';
+        currentTimeHtml_site = "<img class='boardsign' src='https://img.shields.io/badge/玖离的密码小屋-悄悄努力中-6adea8?style=social&logo=coffeescript' title='加油呀，一直在前进呢'><div id='runtime_site'>" + time_site[0] + ' year ' + time_site[1] + ' days ' + time_site[2] + ' : ' + time_site[3] + ' : ' + time_site[4] + '</div>';
     }
 
-    let currentTimeHtml_friendship = "<img class='boardsign' src='https://img.shields.io/badge/和小肖的友谊-持续中-ff69b4?style=social&logo=heart' title='珍惜友谊呀'><div id='runtime_friendship'>" + time_friendship[0] + ' YEAR ' + time_friendship[1] + ' DAYS ' + time_friendship[2] + ' : ' + time_friendship[3] + ' : ' + time_friendship[4] + '</div>';
+    let currentTimeHtml_friendship = "<img class='boardsign' src='https://img.shields.io/badge/和小肖的友谊-持续中-ff69b4?style=social&logo=heart' title='珍惜友谊呀'><div id='runtime_friendship'>" + time_friendship[0] + ' year ' + time_friendship[1] + ' days ' + time_friendship[2] + ' : ' + time_friendship[3] + ' : ' + time_friendship[4] + '</div>';
 
-    // 假设存在对应的DOM元素用于展示，这里先只是构建好完整的HTML字符串（实际使用中需确保对应DOM存在）
     let combinedHtml = currentTimeHtml_site + currentTimeHtml_friendship;
     document.getElementById("workboard").innerHTML = combinedHtml;
 }, 1000);
