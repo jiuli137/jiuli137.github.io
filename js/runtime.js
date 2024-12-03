@@ -1,40 +1,72 @@
-var now = new Date;
-
-function createtime() {
-    now.setTime(now.getTime() + 1e3);
-    var e = new Date("08/01/2022 00:00:00");
-    var t = Math.trunc(234e8 + (now - e) / 1e3 * 17);
-    var a = (t / 1496e5).toFixed(6);
-    var o = new Date("08/09/2022 00:00:00");
-    var n = (now - o) / 1e3 / 60 / 60 / 24;
-    var r = Math.floor(n);
-    var i = (now - o) / 1e3 / 60 / 60 - 24 * r;
-    var s = Math.floor(i);
-    if (1 == String(s).length) {
-        s = "0" + s;
-    }
-    var d = (now - o) / 1e3 / 60 - 1440 * r - 60 * s;
-    var l = Math.floor(d);
-    if (1 == String(l).length) {
-        l = "0" + l;
-    }
-    var g = (now - o) / 1e3 - 86400 * r - 3600 * s - 60 * l;
-    var b = Math.round(g);
-    if (1 == String(b).length) {
-        b = "0" + b;
-    }
-
-    let c = "";
-    if (s < 18 && s >= 9) {
-        c = `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`;
-    } else {
-        c = `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`;
-    }
-    if (document.getElementById("workboard")) {
-        document.getElementById("workboard").innerHTML = c;
-    }
-}
-
 setInterval(() => {
-    createtime();
-}, 1e3);
+    // 玖离的密码小屋相关时间计算
+    let create_time_site = Math.round(new Date('2019-04-17 00:00:00').getTime() / 1000); // 建站时间
+    let timestamp_site = Math.round((new Date().getTime()) / 1000);
+    let second_site = timestamp_site - create_time_site;
+    let time_site = new Array(0, 0, 0, 0, 0);
+
+    // 处理小时部分显示补零的函数
+    var nol = function (h) {
+        return h > 9? h : '0' + h;
+    }
+
+    if (second_site >= 365 * 24 * 3600) {
+        time_site[0] = parseInt(second_site / (365 * 24 * 3600));
+        second_site %= 365 * 24 * 3600;
+    }
+    if (second_site >= 24 * 3600) {
+        time_site[1] = parseInt(second_site / (24 * 3600));
+        second_site %= 24 * 3600;
+    }
+    if (second_site >= 3600) {
+        time_site[2] = nol(parseInt(second_site / 3600));
+        second_site %= 3600;
+    }
+    if (second_site >= 60) {
+        time_site[3] = nol(parseInt(second_site / 60));
+        second_site %= 60;
+    }
+    if (second_site > 0) {
+        time_site[4] = nol(second_site);
+    }
+
+    // 和小肖友谊相关时间计算，起始时间2019年9月1日12:00:00
+    let create_time_friendship = Math.round(new Date('2019-09-01 12:00:00').getTime() / 1000);
+    let timestamp_friendship = Math.round((new Date().getTime()) / 1000);
+    let second_friendship = timestamp_friendship - create_time_friendship;
+    let time_friendship = new Array(0, 0, 0, 0, 0);
+
+    if (second_friendship >= 365 * 24 * 3600) {
+        time_friendship[0] = parseInt(second_friendship / (365 * 24 * 3600));
+        second_friendship %= 365 * 24 * 3600;
+    }
+    if (second_friendship >= 24 * 3600) {
+        time_friendship[1] = parseInt(second_friendship / (24 * 3600));
+        second_friendship %= 24 * 3600;
+    }
+    if (second_friendship >= 3600) {
+        time_friendship[2] = nol(parseInt(second_friendship / 3600));
+        second_friendship %= 3600;
+    }
+    if (second_friendship >= 60) {
+        time_friendship[3] = nol(parseInt(second_friendship / 60));
+        second_friendship %= 60;
+    }
+    if (second_friendship > 0) {
+        time_friendship[4] = nol(second_friendship);
+    }
+
+    let currentTimeHtml_site;
+    if ((Number(time_site[2]) < 22) && (Number(time_site[2]) > 7)) {
+        currentTimeHtml_site = "<img class='boardsign' src='https://img.shields.io/badge/玖离的密码小屋-悄悄摸鱼中-6adea8?style=social&logo=cakephp' title='正在悄悄努力哦~'><div id='runtime_site'>" + time_site[0] + ' YEAR ' + time_site[1] + ' DAYS ' + time_site[2] + ' : ' + time_site[3] + ' : ' + time_site[4] + '</div>';
+    }
+    else {
+        currentTimeHtml_site = "<img class='boardsign' src='https://img.shields.io/badge/玖离的密码小屋-不断努力中-6adea8?style=social&logo=coffeescript' title='加油呀，一直在前进呢'><div id='runtime_site'>" + time_site[0] + ' YEAR ' + time_site[1] + ' DAYS ' + time_site[2] + ' : ' + time_site[3] + ' : ' + time_site[4] + '</div>';
+    }
+
+    let currentTimeHtml_friendship = "<img class='boardsign' src='https://img.shields.io/badge/和小肖的友谊-持续中-ff69b4?style=social&logo=heart' title='珍惜友谊呀'><div id='runtime_friendship'>" + time_friendship[0] + ' YEAR ' + time_friendship[1] + ' DAYS ' + time_friendship[2] + ' : ' + time_friendship[3] + ' : ' + time_friendship[4] + '</div>';
+
+    // 假设存在对应的DOM元素用于展示，这里先只是构建好完整的HTML字符串（实际使用中需确保对应DOM存在）
+    let combinedHtml = currentTimeHtml_site + currentTimeHtml_friendship;
+    document.getElementById("workboard").innerHTML = combinedHtml;
+}, 1000);
