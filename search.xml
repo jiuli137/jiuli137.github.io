@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>说明</title>
-      <link href="/2024/12/03/2024-crypto-wp-%E8%AF%B4%E6%98%8E/"/>
-      <url>/2024/12/03/2024-crypto-wp-%E8%AF%B4%E6%98%8E/</url>
+      <title>2024-强网杯-wp</title>
+      <link href="/2024/12/03/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2024/12/03/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="开启记录之旅"><a href="#开启记录之旅" class="headerlink" title="开启记录之旅"></a>开启记录之旅</h1><p>这算是真正的第一篇文章，此分类主要致力于记录我参与或复现各类比赛的题目，同时也会记下我在过程中遭遇的问题以及突发的奇思妙想。倘若存在错误或者有其他更佳的思路，本人就是 CTF - Crypto 的一个小菜狗罢了,热烈欢迎各位师傅予以指正。</p><p>我也学习一下鸡块师傅的做法：</p><ul><li>赛中做出的题目,名字无变化。</li><li>赛中未做出赛后复现的标 *。</li><li>赛中未做出，赛后也没有思路的标 $。</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="crypto分类的测试文章"><a href="#crypto分类的测试文章" class="headerlink" title="crypto分类的测试文章"></a>crypto分类的测试文章</h2>]]></content>
       
       
       <categories>
@@ -23,11 +23,11 @@
     
     
     <entry>
-      <title>2024-强网杯-wp</title>
-      <link href="/2024/12/03/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-      <url>/2024/12/03/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <title>说明</title>
+      <link href="/2024/12/03/2024-crypto-wp-%E8%AF%B4%E6%98%8E/"/>
+      <url>/2024/12/03/2024-crypto-wp-%E8%AF%B4%E6%98%8E/</url>
       
-        <content type="html"><![CDATA[<h2 id="crypto分类的测试文章"><a href="#crypto分类的测试文章" class="headerlink" title="crypto分类的测试文章"></a>crypto分类的测试文章</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="开启记录之旅"><a href="#开启记录之旅" class="headerlink" title="开启记录之旅"></a>开启记录之旅</h1><p>这算是真正的第一篇文章，此分类主要致力于记录我参与或复现各类比赛的题目，同时也会记下我在过程中遭遇的问题以及突发的奇思妙想。倘若存在错误或者有其他更佳的思路,热烈欢迎各位师傅予以指正。</p><p>我也学习一下鸡块师傅的做法：</p><ul><li>赛中做出的题目,名字无变化。</li><li>赛中未做出赛后复现的标 *。</li><li>赛中未做出，赛后也没有思路的标 $。</li></ul>]]></content>
       
       
       <categories>
