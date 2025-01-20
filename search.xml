@@ -4,25 +4,18 @@
   
     
     <entry>
-      <title>测试3</title>
-      <link href="/2024/12/08/2024-%E6%B5%8B%E8%AF%953/"/>
-      <url>/2024/12/08/2024-%E6%B5%8B%E8%AF%953/</url>
+      <title>RSA入门</title>
+      <link href="/2024/12/08/2025-RSA%E5%85%A5%E9%97%A8/"/>
+      <url>/2024/12/08/2025-RSA%E5%85%A5%E9%97%A8/</url>
       
-        <content type="html"><![CDATA[<h1 id="测试3"><a href="#测试3" class="headerlink" title="测试3"></a>测试3</h1>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、非对称加密的概念与原理"><a href="#一、非对称加密的概念与原理" class="headerlink" title="一、非对称加密的概念与原理"></a>一、非对称加密的概念与原理</h2><h3 id="（一）对称加密的困境"><a href="#（一）对称加密的困境" class="headerlink" title="（一）对称加密的困境"></a>（一）对称加密的困境</h3><p>传统的加密算法采用同一密钥进行加密和解密，这种方式被称为对称加密。在对称加密中，通信双方必须事先约定好密钥，并且要确保密钥的安全。然而，在不安全的通信环境中，密钥的传输和存储都面临着巨大的风险。一旦密钥泄露，即使加密算法再严密，信息也会被轻易破解。</p><h3 id="（二）非对称加密的解决方案"><a href="#（二）非对称加密的解决方案" class="headerlink" title="（二）非对称加密的解决方案"></a>（二）非对称加密的解决方案</h3><p>为了解决对称加密的问题，非对称加密应运而生。非对称加密算法拥有两组密钥：<br>公开密钥（Public key，简称 Pk）：又称公钥，可以公开给所有人进行存储。<br>私有密钥（Secret key，简称 Sk）：又称私钥，只能由发送者自己妥善保存。<br>在通信过程中，发送者使用接收者的公钥对信息进行加密，然后将密文发送给接收者。接收者收到密文后，使用自己的私钥进行解密。由于私钥只有接收者拥有，即使中间节点获取了密文，也无法解密，从而保证了信息的保密性。</p><h3 id="（三）数字签名与身份验证"><a href="#（三）数字签名与身份验证" class="headerlink" title="（三）数字签名与身份验证"></a>（三）数字签名与身份验证</h3><p>非对称加密不仅可以保证信息的保密性，还可以通过数字签名实现身份验证和信息完整性的验证。发送者使用自己的私钥对数据进行签名，接收者使用发送者的公钥进行验签。如果验签成功，就可以证明数据是由发送者发送的，并且在传输过程中没有被篡改。</p><h2 id="二、RSA-算法"><a href="#二、RSA-算法" class="headerlink" title="二、RSA 算法"></a>二、RSA 算法</h2><h3 id="（三）RSA-算法的工作流程"><a href="#（三）RSA-算法的工作流程" class="headerlink" title="（三）RSA 算法的工作流程"></a>（三）RSA 算法的工作流程</h3><p>选取两个不同的大素数(p)和(q)，计算(N = p \cdot q) </p><p>求欧拉函数值(\varphi(N)=\varphi(p)\varphi(q)=(p - 1)(q - 1))</p><p>选择一个小于(\varphi(N))的整数(e)，并且满足(e)和(\varphi(N))互质，求得(e)在模(\varphi(N))意义下的乘法逆元(d)，使得(ed\equiv1\pmod{\varphi(N)})</p>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试4</title>
-      <link href="/2024/12/08/2024-%E6%B5%8B%E8%AF%954/"/>
-      <url>/2024/12/08/2024-%E6%B5%8B%E8%AF%954/</url>
-      
-        <content type="html"><![CDATA[<h1 id="测试4"><a href="#测试4" class="headerlink" title="测试4"></a>测试4</h1>]]></content>
-      
+      <categories>
+          
+          <category> crypto - record </category>
+          
+      </categories>
       
       
     </entry>
