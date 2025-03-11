@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>2024-cryptoctf-wp</title>
+      <link href="/2025/03/11/2024-cryptoctf-wp/"/>
+      <url>/2025/03/11/2024-cryptoctf-wp/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><h2 id="alibos"><a href="#alibos" class="headerlink" title="alibos"></a>alibos</h2><p>题目描述：<br>    Alibos, a classic cryptographic algorithm, is designed to safeguard non-sensitive data, providing a reliable solution for routine information protection.</p><p>题目：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">from Crypto.Util.number import *</span><br><span class="line">from gmpy2 import *</span><br><span class="line">from secret import d, flag</span><br><span class="line"></span><br><span class="line">get_context().precision = 1337</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def pad(m, d):</span><br><span class="line">    if len(str(m)) &lt; d:</span><br><span class="line">        m = str(m) + &#x27;1&#x27; * (d - len(str(m)))</span><br><span class="line">    return int(m)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def genkey(d):</span><br><span class="line">    skey = getRandomRange(10 ** (d - 1), 10 ** d)</span><br><span class="line">    pkey = int(10 ** d * (sqrt(skey) - floor(sqrt(skey))))</span><br><span class="line">    return pkey, skey</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def encrypt(m, pkey):</span><br><span class="line">    m = pad(m, len(str(pkey)))</span><br><span class="line">    d = len(str(pkey))</span><br><span class="line">    c = (pkey + d ** 2 * m) % (10 ** d)</span><br><span class="line">    return c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pkey, skey = genkey(d)</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = encrypt(m, pkey)</span><br><span class="line"></span><br><span class="line">print(f&#x27;pkey = &#123;pkey&#125;&#x27;)</span><br><span class="line">print(f&#x27;enc  = &#123;c&#125;&#x27;)</span><br></pre></td></tr></table></figure><p>output:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkey = 8582435512564229286688465405009040056856016872134514945016805951785759509953023638490767572236748566493023965794194297026085882082781147026501124183913218900918532638964014591302221504335115379744625749001902791287122243760312557423006862735120339132655680911213722073949690947638446354528576541717311700749946777</span><br><span class="line">enc  = 6314597738211377086770535291073179315279171595861180001679392971498929017818237394074266448467963648845725270238638741470530326527225591470945568628357663345362977083408459035746665948779559824189070193446347235731566688204757001867451307179564783577100125355658166518394135392082890798973020986161756145194380336</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> crypto - write_up </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>RSA入门</title>
       <link href="/2024/12/08/2025-RSA%E5%85%A5%E9%97%A8/"/>
       <url>/2024/12/08/2025-RSA%E5%85%A5%E9%97%A8/</url>
